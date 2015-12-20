@@ -1,19 +1,18 @@
 # Go Course - Go Lang Coding.
-
 Notes and examples from Udemy course.
 
-https://www.udemy.com/learn-how-to-code
+[https://www.udemy.com/learn-how-to-code](https://www.udemy.com/learn-how-to-code)
 
-Section 1: Setup.
+## Section 1: Setup.
 
 Installation - already had 1.4 - moved to 1.5.2 (64bit linux)
+
 ```
 wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz 
+sudo tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz
 ```
 
-Note: go recommends a workspace folder - mine is in /home/ali/go - I'll symlink from there to subfolders here for this course.
-
+Note: go recommends a workspace folder - mine is in /home/ali/go - made a go-course-01 repo for this.
 
 Note: hit errors with upgrade of Go
 
@@ -31,10 +30,6 @@ sudo tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz
 
 Resolved Problem - HELLO WORLD! :)
 
-
 Additionally - if installing first time - have to set up some go env vars. GOPATH (workspace) GOROOT (/usr/local/bin/go - or whereever) etc - easy done before.
 
-For the course then run: ```go get github.com/GoesToEleven/GolangTraining``` - adds to ~/go/src/...
-
-
-
+For the course then run: `go get github.com/goestoeleven/golangtraining` - adds to ~/go/src/... (note mid-way in section 4 he changes username/repo to lowercased versions - better but - seriously - edit the original video!)
