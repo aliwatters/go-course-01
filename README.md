@@ -33,3 +33,13 @@ Resolved Problem - HELLO WORLD! :)
 Additionally - if installing first time - have to set up some go env vars. GOPATH (workspace) GOROOT (/usr/local/bin/go - or whereever) etc - easy done before.
 
 For the course then run: `go get github.com/goestoeleven/golangtraining` - adds to ~/go/src/... (note mid-way in section 4 he changes username/repo to lowercased versions - better but - seriously - edit the original video!)
+
+## Section 2
+
+### Packages
+
+Exported / unexported - capitalized is visible outside of the package, lowercase internal. public/private not used.
+
+## Section 4 - scope
+
+Had some problems when I tried to create and use a package called foo. Switched to bar and things worked... odd. I did have foo/foo.go - changed to bar/foo.go - might have been something to do with it.
