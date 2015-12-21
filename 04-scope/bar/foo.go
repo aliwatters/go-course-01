@@ -10,3 +10,12 @@ func You(name string) string {
 func what() string {
 	return "rock star"
 }
+
+// Wrapper here is designed to be an IIFE - called with wrapper()
+func Wrapper() func() int {
+	x := 0
+	return func() int {
+		x++
+		return x
+	}
+}

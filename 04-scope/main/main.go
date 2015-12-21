@@ -26,6 +26,10 @@ func main() {
 	// fmt.Println(max(100)) // at this point - can't be done - the variable as shadowed the func
 	msg := bar.You("Ali")
 	fmt.Println(msg)
+
+	increment := bar.Wrapper()
+	fmt.Printf("Increment call 1: %d\n", increment())
+	fmt.Printf("Increment call 2: %d\n", increment())
 }
 
 func foo() {

@@ -43,3 +43,25 @@ Exported / unexported - capitalized is visible outside of the package, lowercase
 ## Section 4 - scope
 
 Had some problems when I tried to create and use a package called foo. Switched to bar and things worked... odd. I did have foo/foo.go - changed to bar/foo.go - might have been something to do with it.
+
+Func expressions - eg:
+
+inside a function you can assign an anonymous function to a var very similar to JS at this point.
+
+We can also - write functions that return functions - works very similar to javascript (first class functions)
+
+```
+func wrapper() func() int {
+  x := 0
+  return func() int {
+    x++
+    return x
+  }
+}
+
+func main() {
+  increment := wrapper() // IIFE!
+  fmt.Println(increment())
+  fmt.Println(increment())
+}
+```
