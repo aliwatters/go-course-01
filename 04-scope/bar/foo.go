@@ -13,6 +13,7 @@ func what() string {
 
 // Wrapper here is designed to be an IIFE - called with wrapper()
 func Wrapper() func() int {
+	// the returned func is a closure of this scope (a ref to x is maintained)
 	x := 0
 	return func() int {
 		x++
