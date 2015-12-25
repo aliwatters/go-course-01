@@ -3,6 +3,16 @@ Notes and examples from Udemy course.
 
 [https://www.udemy.com/learn-how-to-code](https://www.udemy.com/learn-how-to-code)
 
+Note on terminology - not sure if all US works like this - but might help with avoiding saying "curly brackets"!
+
+```
+{} == BRACES
+() == PARENTHESES
+[] == BRACKETS
+```
+
+
+
 ## Section 1: Setup.
 
 Installation - already had 1.4 - moved to 1.5.2 (64bit linux)
@@ -204,6 +214,122 @@ b := true
 
 if food := "chocolate"; b {
 	fmt.Println(food) // initialized and scoped in this block only - keep scope tight
+}
+```
+
+## Functions
+ - see examles
+
+## Data Stucts
+
+### Array
+ - in golang, numbered sequence of a single type that does not change in size.
+
+### Slice
+ - has an underlying array that go dynamically resizes if capacity is exceeded
+ - the initialization of a slice can specify these (useful if we have some idea of order of magnitude)
+
+```
+mySlice := make([]T, size, capacity)
+```
+
+ - as elements are appended to a slice - capacity doubles in the low numbers and then moves up blocks of bytes - eg. 1536, 2048..
+
+```
+[] length: 0 capacity: 10
+---------------------
+10 :	 length: 11 capacity: 20
+20 :	 length: 21 capacity: 40
+40 :	 length: 41 capacity: 80
+80 :	 length: 81 capacity: 160
+160 :	 length: 161 capacity: 320
+320 :	 length: 321 capacity: 672
+672 :	 length: 673 capacity: 1536
+1536 :	 length: 1537 capacity: 2048
+2048 :	 length: 2049 capacity: 2560
+2560 :	 length: 2561 capacity: 3552
+3552 :	 length: 3553 capacity: 5120
+5120 :	 length: 5121 capacity: 7168
+7168 :	 length: 7169 capacity: 9216
+9216 :	 length: 9217 capacity: 12288
+12288 :	 length: 12289 capacity: 15360
+15360 :	 length: 15361 capacity: 19456
+19456 :	 length: 19457 capacity: 24576
+24576 :	 length: 24577 capacity: 30720
+30720 :	 length: 30721 capacity: 38912
+38912 :	 length: 38913 capacity: 49152
+49152 :	 length: 49153 capacity: 61440
+61440 :	 length: 61441 capacity: 76800
+76800 :	 length: 76801 capacity: 96256
+96256 :	 length: 96257 capacity: 120832
+```
+
+ - there's an underlying algo which is adaptive - which is very cool
+ - note: append must be used after size is exceeded.
+ - concat is via append and a variadic (spread)
+
+```
+  mySlice = append(mySlice, otherSlice...)
+```
+
+ - deleting from a slice - seems a little naff
+
+```
+  mySlice := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+  mySlice = append(mySlice[:4], mySlice[5:]...)
+  // [0 1 2 3 5 6 7 8 9]
+```
+
+#### Creating Slices
+
+A few options
+
+ - ```var slice []string``` - empty must use append
+ - ```slice := []string{}``` -  empty must use append
+ - ```slice := []string{"a", "b", "c"}``` - first 3 slots filled can be accessed eg. ```slice[1]```
+ - ```slice := make([]string, 3, 10)``` - as above - size is accessible, capacity is efficient if we know the likely size of the slice
+ - ```slice := make([]string, 10)``` - size and capacity are 10
+
+
+Note: make seems to be the idiomatic slice creation method.
+
+## Map
+
+note: maps == dicts - ```val := m["key"]``` will get a zero value if key not present
+
+idiom for ensuring that a val exists vs zero
+"comma ok" idiom
+```
+  m := make(map[string]int)
+
+  if val, ok := m["key"]; ok {
+    // do something with val
+  }
+```
+
+ - problems with ```var m map[string]string``` -- no way to add stuff in!
+
+
+## Hash 
+ - underlying structure in maps
+ - thing -> hash algo -> bucket
+
+## OOP
+
+- no classes - create a type
+- no instantiating - create a variable of type
+
+- methods are added as so: (note this or self is not idiomatic)
+
+```
+type person struct {
+	first string
+	last  string
+	age   int
+}
+
+func (p person) fullName() string {
+	return p.first + " " + p.last
 }
 ```
 
