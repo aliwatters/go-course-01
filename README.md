@@ -334,3 +334,52 @@ func (p person) fullName() string {
 ```
 
 
+## Interfaces
+
+- has them - simply implemented and implicitly - interface is a type
+
+```
+type Square struct {
+	side float64
+}
+
+func (z Square) area() float64 {
+	return z.side * z.side
+}
+
+type Shape interface {
+	area() float64
+}
+
+func info(z Shape) {
+	// Square or Circle or anything that has an area func which returns float64 can be z
+}
+```
+
+Square implements the Shape interface - so if there are functions that require a Shape, Square can use them.
+Square above maybe refered to as a concrete type. Interface types never implement the functionality directly.
+
+### Empty interfaces
+
+```interface{}``` - everything conforms to this interface so it acts as a wildcard for types
+
+
+## Recievers
+
+Simply: 
+
+```
+Recievers		Values (will accept)
+------------------------------------
+(t T)			T and *T
+(t *T)			*T
+```
+
+## Casting and Assertion
+
+```
+(int)val  // cast
+val.(int) // assert
+```
+
+
