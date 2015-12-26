@@ -426,6 +426,22 @@ go run -race main.go
 
 Mutual exclusion object
 
+### Channels
 
+make is used: - make create slices, maps and channels only!
+
+```
+channel := make(chan T, buffer)
+
+eg.
+
+c := make(chan int) // simple int channel
+```
+
+close - closes the channel to NEW items
+
+range will drain a closed channel (as well as reading a open channel)
+
+semaphore pattern - one channel or more - and signal to a done channel (bool) that the other channels are completed.
 
 
