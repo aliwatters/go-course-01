@@ -382,4 +382,50 @@ Recievers		Values (will accept)
 val.(int) // assert
 ```
 
+## Concurrency
+
+### Wait Groups
+
+From the sync package;
+
+```
+var wg.sync.WaitGroup
+
+func main() {
+	wg.Add(2)
+	go foo("foo:")
+	go foo("bar:")
+	wg.Wait()
+}
+
+func foo(msg string) {
+	for i := 0; i < 100; i++ {
+		fmt.Println(msg, i)
+	}
+	wg.Done()
+}
+```
+
+Note that the scope of foo must have access to wg; wg.Done() looks like it decrements the count from Add() and allows Wait() to finish.
+
+### Concurrency vs Parrallelism
+
+concurrency - independently executing processes - interleaving
+parallelism - simultaneous execution of computations - forking
+
+### Race conditions
+
+Two or more processes modifying simultaneously updating a var - leads to unexpected results. Even ++ can do this - see example 23 - 04
+
+Run with -race flag to see
+
+```
+go run -race main.go
+```
+### Mutex
+
+Mutual exclusion object
+
+
+
 
