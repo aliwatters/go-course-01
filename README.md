@@ -444,4 +444,18 @@ range will drain a closed channel (as well as reading a open channel)
 
 semaphore pattern - one channel or more - and signal to a done channel (bool) that the other channels are completed.
 
+NOTE: 
+race conditions - multiple processes (go routines) affecting the same var
+deadlocks - a sender has no reciever on a channel and is blocking - which means that the receiver never gets set up!
 
+### Deadlock
+
+example:
+
+```
+func main() {
+	c := make(chan int)
+	c <- 1 // put something on the channel - but - blocks until something is ready to recieve it
+	fmt.Println(<-c) // recieve something from chan c - but doesn't runas blocked
+}
+```

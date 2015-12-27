@@ -7,7 +7,7 @@ func main() {
 	c2 := incrementor("bar:")
 	c3 := puller(c1)
 	c4 := puller(c2)
-	fmt.Println("final counter", <-c3+<-c4)
+	fmt.Println("final counter", <-c3+<-c4) // blocks here
 
 }
 
