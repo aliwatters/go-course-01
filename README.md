@@ -486,3 +486,9 @@ A nice article on concurrency: Dancing with Go’s Mutexes
 Memory Allocation
 A great Stack Overflow post on memory allocation http://stackoverflow.com/questions/34197248/how-can-i-store-reference-to-the-result-of-an-operation-in-go
 A great article on memory allocation http://golangtutorials.blogspot.ae/2011/06/memory-variables-in-memory-and-pointers.html
+
+
+## Next Steps
+
+https://goo.gl/k5VKHd -- Building Web Apps with Go
+
