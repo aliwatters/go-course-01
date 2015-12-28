@@ -3,6 +3,27 @@ Notes and examples from Udemy course.
 
 [https://www.udemy.com/learn-how-to-code](https://www.udemy.com/learn-how-to-code)
 
+also see: https://github.com/GoesToEleven/GolangTraining
+
+Note on terminology - not sure if all US works like this - but might help with avoiding saying "curly brackets"!
+
+```
+{} == BRACES
+() == PARENTHESES
+[] == BRACKETS
+```
+
+
+## Section 1: Setup.
+
+Installation - already had 1.4 - moved to 1.5.2 (64bit linux)
+
+```
+wget https://storage.googleapis.com/golang/go1.5.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.5.2.linux-amd64.tar.gz
+```
+
+
 Note on terminology - not sure if all US works like this - but might help with avoiding saying "curly brackets"!
 
 ```
@@ -42,7 +63,7 @@ Resolved Problem - HELLO WORLD! :)
 
 Additionally - if installing first time - have to set up some go env vars. GOPATH (workspace) GOROOT (/usr/local/bin/go - or whereever) etc - easy done before.
 
-For the course then run: `go get github.com/goestoeleven/golangtraining` - adds to ~/go/src/... (note mid-way in section 4 he changes username/repo to lowercased versions - better but - seriously - edit the original video!)
+For the course then run: `go get github.com/goestoeleven/golangtraining`
 
 ## Section 2
 
@@ -459,3 +480,9 @@ func main() {
 	fmt.Println(<-c) // recieve something from chan c - but doesn't runas blocked
 }
 ```
+
+### Concurrency Additional Notes:
+A nice article on concurrency: Dancing with Go’s Mutexes 
+Memory Allocation
+A great Stack Overflow post on memory allocation http://stackoverflow.com/questions/34197248/how-can-i-store-reference-to-the-result-of-an-operation-in-go
+A great article on memory allocation http://golangtutorials.blogspot.ae/2011/06/memory-variables-in-memory-and-pointers.html
